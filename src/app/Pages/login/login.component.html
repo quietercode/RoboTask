@@ -1,0 +1,8 @@
+<div class="col-4 offset-4">
+    <div class="col-8">
+        <input type="text" [(ngModel)]="emailAddress" placeholder="Email Address" class="m-1 form-control" />
+        <input type="password" [(ngModel)]="password" placeholder="Password" class="m-1 form-control" />
+    </div>
+    <div class="col-2"><button type="button" class="btn btn-sm btn-outline-success m-1" [disabled]="emailAddress=='' || password==''" (click)="login()">Login</button></div>
+    <div *ngIf="displayErrorMessage" class="col-12 bg-danger">An error occurred during login. Please try again.</div>
+</div>
