@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import PocketBase from 'pocketbase';
+import PocketBase, { RecordModel } from 'pocketbase';
 import { UserModel } from '../../interfaces/user-model';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject } from 'rxjs';
+import { RegisterModel } from '../../interfaces/register-model';
 
 
 @Injectable({
@@ -24,4 +25,17 @@ export class AuthService {
 
     return pb.authStore.isValid;
   }
+
+  public async register(registerModel: RegisterModel) : Promise<RecordModel> {
+    const pb = new PocketBase(environment.baseUrl);
+
+    return await pb.collection('users').create(registerModel);
+  }
+
+  public async logout() {
+    const pb = new PocketBase(environment.baseUrl);
+
+    return await pb.authStore.clear();
+  }
+
 }

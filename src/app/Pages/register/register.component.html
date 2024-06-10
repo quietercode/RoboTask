@@ -1,0 +1,11 @@
+<div class="col-4 offset-4">
+    <div class="col-8">
+        <form [formGroup]="fg" (ngSubmit)="register()">
+            <input type="text" formControlName="email" placeholder="Email Address" class="m-1 form-control" />
+            <input type="password" formControlName="password" placeholder="Password" class="m-1 form-control" />
+            <input type="password" formControlName="passwordConfirm" placeholder="Verify Password" class="m-1 form-control" />
+            <input type="text" formControlName="name" placeholder="Full Name" class="m-1 form-control" />
+            <div class="col-2"><button type="submit" [disabled]="!fg.valid" class="btn btn-sm btn-outline-success m-1">Register</button></div>
+        </form>
+    </div>
+</div>
