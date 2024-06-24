@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #222;
+    padding: 15px;
+}
+
+a.headerLink:link, a.headerLink:active, a.headerLink:visited {
+    text-decoration: none;
+    color: #ededed;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+a.headerLink:hover {
+    text-decoration: underline;
+    color: #ccc;
+}
+
+a.logoLink:link, a.logoLink:active, a.logoLink:visited {
+    text-decoration: none;
+    color: lightblue;
+    font-size: 24pt;
+    padding: 5px;
+}
+
+a.logoLink:hover {
+    color: #266ACE;
+}

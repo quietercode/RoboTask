@@ -38,4 +38,11 @@ export class AuthService {
     return await pb.authStore.clear();
   }
 
+  public updateUserSubject() {
+    const pb = new PocketBase(environment.baseUrl);
+    this.userSubject.next({ isValid: pb.authStore.isValid, authModel: pb.authStore.model, token: pb.authStore.token });
+  }
+
+  
+
 }
