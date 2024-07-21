@@ -43,6 +43,9 @@ export class AuthService {
     this.userSubject.next({ isValid: pb.authStore.isValid, authModel: pb.authStore.model, token: pb.authStore.token });
   }
 
-  
+  async getUserId() : Promise<any> {
+    const pb = new PocketBase(environment.baseUrl);
+    return await pb.authStore.model;
+  }
 
 }

@@ -1,7 +1,34 @@
 <div class="col-8 offset-2">
     <div class="row">
-        <div class="col-8" *ngFor="let t of tasks">
-            {{t.name}}
+        <div class="col">
+            <button type="button" class="btn btn-sm btn-primary" (click)="addTask()">Add Task</button>
+        </div>
+    </div>
+    <div class="row" *ngFor="let t of tasks">
+        <div class="col-1">
+            <input class="form-check-input" type="checkbox" (change)="updateTask(t)" [(ngModel)]="t.complete" />
+        </div>
+        <div class="col-8">
+            <label *ngIf="!t.editMode" class="taskLabel" (dblclick)="editTask(t)">{{t.name}}</label>
+            <input type="text" [(ngModel)]="t.name" *ngIf="t.editMode" class="form-control" />
+        </div>
+        <div class="col-3">
+
+            <button type="button" 
+                *ngIf="t.editMode" 
+                class="btn btn-sm btn-outline-success" 
+                [disabled]="t.name.trim()==''" 
+                (click)="updateTask(t)">Save</button>
+
+            <button type="button" 
+                *ngIf="t.editMode" 
+                class="btn btn-sm btn-outline-warning" 
+                (click)="cancelEdit(t)">Cancel</button>
+                
+            <button type="button" 
+                *ngIf="t.editMode" 
+                class="btn btn-sm btn-outline-danger" 
+                (click)="deleteTask(t)">Delete</button>
         </div>
     </div>
 </div>

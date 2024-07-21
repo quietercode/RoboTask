@@ -5,4 +5,5 @@ export interface TaskModel {
     user: any;
     created: Date;
     updated: Date;
+    editMode: boolean;
 }
